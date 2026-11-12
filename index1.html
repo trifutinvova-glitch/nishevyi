@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Насколько ты нишевый?</title>
+<script id="vk-sdk">
+/* @vkontakte/vk-bridge 2.15.0
+MIT License
+
+
+Copyright (c) 2017-present, V Kontakte, LLC.
+
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+!function(){"use strict";var e=function(){return e=Object.assign||function(e){for(var t,n=1,o=arguments.length;n<o;n++)for(var r in t=arguments[n])Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r]);return e},e.apply(this,arguments)};function t(e,t,n,o){return new(n||(n=Promise))((function(r,p){function i(e){try{s(o.next(e))}catch(e){p(e)}}function a(e){try{s(o.throw(e))}catch(e){p(e)}}function s(e){var t;e.done?r(e.value):(t=e.value,t instanceof n?t:new n((function(e){e(t)}))).then(i,a)}s((o=o.apply(e,t||[])).next())}))}function n(e,t){var n,o,r,p,i={label:0,sent:function(){if(1&r[0])throw r[1];return r[1]},trys:[],ops:[]};return p={next:a(0),throw:a(1),return:a(2)},"function"==typeof Symbol&&(p[Symbol.iterator]=function(){return this}),p;function a(a){return function(s){return function(a){if(n)throw new TypeError("Generator is already executing.");for(;p&&(p=0,a[0]&&(i=0)),i;)try{if(n=1,o&&(r=2&a[0]?o.return:a[0]?o.throw||((r=o.return)&&r.call(o),0):o.next)&&!(r=r.call(o,a[1])).done)return r;switch(o=0,r&&(a=[2&a[0],r.value]),a[0]){case 0:case 1:r=a;break;case 4:return i.label++,{value:a[1],done:!1};case 5:i.label++,o=a[1],a=[0];continue;case 7:a=i.ops.pop(),i.trys.pop();continue;default:if(!(r=i.trys,(r=r.length>0&&r[r.length-1])||6!==a[0]&&2!==a[0])){i=0;continue}if(3===a[0]&&(!r||a[1]>r[0]&&a[1]<r[3])){i.label=a[1];break}if(6===a[0]&&i.label<r[1]){i.label=r[1],r=a;break}if(r&&i.label<r[2]){i.label=r[2],i.ops.push(a);break}r[2]&&i.ops.pop(),i.trys.pop();continue}a=t.call(e,i)}catch(e){a=[6,e],o=0}finally{n=r=0}if(5&a[0])throw a[1];return{value:a[0]?a[1]:void 0,done:!0}}([a,s])}}}function o(e,t,n){if(n||2===arguments.length)for(var o,r=0,p=t.length;r<p;r++)!o&&r in t||(o||(o=Array.prototype.slice.call(t,0,r)),o[r]=t[r]);return e.concat(o||Array.prototype.slice.call(t))}function r(t,n,o){var r=function(e){var t={current:0,next:function(){return++this.current}},n={};return{add:function(o,r){var p=null!=r?r:"".concat(t.next(),"_").concat(e);return n[p]=o,p},resolve:function(e,t,o){var r=n[e];r&&(o(t)?r.resolve(t):r.reject(t),n[e]=null)}}}(o);return n((function(e){if(e.detail&&e.detail.data&&"object"==typeof e.detail.data&&"request_id"in e.detail.data){var t=e.detail.data,n=t.request_id,o=function(e,t){var n={};for(var o in e)Object.prototype.hasOwnProperty.call(e,o)&&t.indexOf(o)<0&&(n[o]=e[o]);if(null!=e&&"function"==typeof Object.getOwnPropertySymbols){var r=0;for(o=Object.getOwnPropertySymbols(e);r<o.length;r++)t.indexOf(o[r])<0&&Object.prototype.propertyIsEnumerable.call(e,o[r])&&(n[o[r]]=e[o[r]])}return n}(t,["request_id"]);n&&r.resolve(n,o,(function(e){return!("error_type"in e)}))}})),function(n,o){return void 0===o&&(o={}),new Promise((function(p,i){var a=r.add({resolve:p,reject:i},o.request_id);t(n,e(e({},o),{request_id:a}))}))}}var p,i="undefined"!=typeof window,a=Boolean(i&&window.AndroidBridge),s=Boolean(i&&window.webkit&&window.webkit.messageHandlers&&window.webkit.messageHandlers.VKWebAppClose),u=Boolean(i&&window.ReactNativeWebView&&"function"==typeof window.ReactNativeWebView.postMessage),l=i&&!a&&!s,c=l&&/(^\?|&)vk_platform=mobile_web(&|$)/.test(location.search),d=l?"message":"VKWebAppEvent",b=o(["VKWebAppInit","VKWebAppGetCommunityAuthToken","VKWebAppAddToCommunity","VKWebAppAddToHomeScreenInfo","VKWebAppClose","VKWebAppCopyText","VKWebAppCreateHash","VKWebAppGetUserInfo","VKWebAppSetLocation","VKWebAppSendToClient","VKWebAppGetClientVersion","VKWebAppGetPhoneNumber","VKWebAppGetEmail","VKWebAppGetGroupInfo","VKWebAppGetGeodata","VKWebAppGetCommunityToken","VKWebAppGetConfig","VKWebAppGetLaunchParams","VKWebAppSetTitle","VKWebAppGetAuthToken","VKWebAppCallAPIMethod","VKWebAppJoinGroup","VKWebAppLeaveGroup","VKWebAppAllowMessagesFromGroup","VKWebAppDenyNotifications","VKWebAppAllowNotifications","VKWebAppOpenPayForm","VKWebAppOpenApp","VKWebAppShare","VKWebAppShowWallPostBox","VKWebAppScroll","VKWebAppShowOrderBox","VKWebAppShowLeaderBoardBox","VKWebAppShowInviteBox","VKWebAppShowRequestBox","VKWebAppAddToFavorites","VKWebAppShowStoryBox","VKWebAppStorageGet","VKWebAppStorageGetKeys","VKWebAppStorageSet","VKWebAppFlashGetInfo","VKWebAppSubscribeStoryApp","VKWebAppOpenWallPost","VKWebAppCheckAllowedScopes","VKWebAppCheckBannerAd","VKWebAppHideBannerAd","VKWebAppShowBannerAd","VKWebAppCheckNativeAds","VKWebAppShowNativeAds","VKWebAppRetargetingPixel","VKWebAppConversionHit","VKWebAppShowSubscriptionBox","VKWebAppCheckSurvey","VKWebAppShowSurvey","VKWebAppScrollTop","VKWebAppScrollTopStart","VKWebAppScrollTopStop","VKWebAppShowSlidesSheet","VKWebAppTranslate","VKWebAppRecommend","VKWebAppAddToProfile","VKWebAppGetFriends"],l&&!c?["VKWebAppResizeWindow","VKWebAppAddToMenu","VKWebAppShowInstallPushBox","VKWebAppShowCommunityWidgetPreviewBox","VKWebAppCallStart","VKWebAppCallJoin","VKWebAppCallGetStatus"]:["VKWebAppShowImages"],!0),f=i?window.AndroidBridge:void 0,A=s?window.webkit.messageHandlers:void 0,W=l?parent:void 0;var w,V,K,S,h,v,y,m;!function(e){e.REWARD="reward",e.INTERSTITIAL="interstitial"}(w||(w={})),function(e){e.RESIZE="resize",e.OVERLAY="overlay"}(V||(V={})),function(e){e.TOP="top",e.BOTTOM="bottom"}(K||(K={})),function(e){e.LEFT="left",e.RIGHT="right",e.CENTER="center"}(S||(S={})),function(e){e.CAMERA="camera",e.LOCATION="location",e.PHOTO="photo"}(h||(h={})),function(e){e.RU="ru",e.UK="uk",e.UA="ua",e.EN="en",e.BE="be",e.KZ="kz",e.PT="pt",e.ES="es"}(v||(v={})),function(e){e.ADMIN="admin",e.EDITOR="editor",e.MEMBER="member",e.MODER="moder",e.NONE="none"}(y||(y={})),function(e){e.DESKTOP_WEB="desktop_web",e.DESKTOP_WEB_MESSENGER="desktop_web_messenger",e.DESKTOP_APP_MESSENGER="desktop_app_messenger",e.MOBILE_WEB="mobile_web",e.MOBILE_ANDROID="mobile_android",e.MOBILE_ANDROID_MESSENGER="mobile_android_messenger",e.MOBILE_IPHONE="mobile_iphone",e.MOBILE_IPHONE_MESSENGER="mobile_iphone_messenger",e.MOBILE_IPAD="mobile_ipad"}(m||(m={}));var E=function(e){var i=void 0,c=[],w=Math.random().toString(36).substring(2,5);function V(e){c.push(e)}function K(e){return console.warn("This method is deprecated. Use supportsAsync instead."),a?!(!f||"function"!=typeof f[e]):s?!(!A||!A[e]||"function"!=typeof A[e].postMessage):!!l&&b.includes(e)}function S(){return s||a}function h(){return l&&window.parent!==window}function v(){return S()||h()}function y(e){if(s||a)return o([],c,!0).map((function(t){return t.call(null,e)}));var t=null==e?void 0:e.data;if(l&&t){if(u&&"string"==typeof t)try{t=JSON.parse(t)}catch(e){}var n=t.type,r=t.data,p=t.frameId;n&&("VKWebAppSettings"!==n?o([],c,!0).map((function(e){return e({detail:{type:n,data:r}})})):i=p)}}u&&/(android)/i.test(navigator.userAgent)?document.addEventListener(d,y):"undefined"!=typeof window&&"addEventListener"in window&&window.addEventListener(d,y);var m=r((function(t,n){f&&f[t]?f[t](JSON.stringify(n)):A&&A[t]&&"function"==typeof A[t].postMessage?A[t].postMessage(n):u?window.ReactNativeWebView.postMessage(JSON.stringify({handler:t,params:n})):W&&"function"==typeof W.postMessage&&W.postMessage({handler:t,params:n,type:"vk-connect",webFrameId:i,connectVersion:e},"*")}),V,w);return V((function(e){if(e.detail&&"SetSupportedHandlers"===e.detail.type)p=e.detail.data.supportedHandlers})),{send:m,sendPromise:m,subscribe:V,unsubscribe:function(e){var t=c.indexOf(e);t>-1&&c.splice(t,1)},supports:K,supportsAsync:function(e){return t(this,void 0,void 0,(function(){var t;return n(this,(function(n){switch(n.label){case 0:if(a||s)return[2,K(e)];if(p)return[2,p.includes(e)];n.label=1;case 1:return n.trys.push([1,3,,4]),[4,m("SetSupportedHandlers")];case 2:return t=n.sent(),[2,(p=t.supportedHandlers).includes(e)];case 3:return n.sent(),[2,(p=["VKWebAppInit"]).includes(e)];case 4:return[2]}}))}))},isWebView:S,isIframe:h,isEmbedded:v,isStandalone:function(){return!v()}}}("2.15.0");window.vkBridge=window.vkConnect=E}();
+
+</script>
+
+<style>
+  :root{
+    --bg1:#14081f; --bg2:#2a0f3d;
+    --acc:#c6ff3d; --acc2:#ff4fd8; --acc3:#4fd8ff;
+    --card:rgba(255,255,255,.06); --line:rgba(255,255,255,.14);
+    --txt:#f5f0ff; --mut:#b9a8d6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{height:100%;overflow:hidden;background:#1c0b2b}
+  body{height:100%;
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    color:var(--txt);
+    background:radial-gradient(1200px 600px at 10% -10%,#4a1a6b 0%,transparent 60%),
+               radial-gradient(900px 500px at 110% 110%,#0f3b4a 0%,transparent 60%),
+               linear-gradient(160deg,var(--bg1),var(--bg2));
+    -webkit-user-select:none;user-select:none;-webkit-touch-callout:none;
+    overflow:hidden;
+  }
+  #game-scroll{
+    height:100vh;
+    height:100dvh;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overscroll-behavior-y:contain;
+    touch-action:pan-y pinch-zoom;
+  }
+  #app{max-width:720px;margin:0 auto;padding:24px 18px 32px;min-height:100%;display:flex;flex-direction:column}
+  .screen{display:none;flex:1;flex-direction:column;animation:in .35s ease}
+  .screen.on{display:flex}
+  @keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+  /* start */
+  .logo{font-size:64px;text-align:center;margin-top:4vh;filter:drop-shadow(0 6px 20px rgba(198,255,61,.35))}
+  h1{font-size:clamp(30px,7vw,46px);line-height:1.05;text-align:center;margin:18px 0 12px;font-weight:900;letter-spacing:-.02em}
+  h1 em{font-style:normal;background:linear-gradient(90deg,var(--acc),var(--acc3));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lead{color:var(--mut);text-align:center;font-size:17px;line-height:1.5;max-width:520px;margin:0 auto}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:22px 0 28px}
+  .chip{border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-size:14px;color:var(--mut)}
+  .btn{
+    display:block;width:100%;border:0;border-radius:18px;padding:18px 20px;font-size:19px;font-weight:800;
+    color:#14081f;background:var(--acc);cursor:pointer;transition:transform .12s, box-shadow .12s;
+    box-shadow:0 8px 30px rgba(198,255,61,.25);outline:none;font-family:inherit;
+  }
+  .btn:hover,.btn:focus-visible,.btn.kfocus{transform:translateY(-2px);box-shadow:0 0 0 3px #fff,0 10px 36px rgba(198,255,61,.4)}
+  .btn.alt{background:transparent;color:var(--txt);border:1.5px solid var(--line);box-shadow:none}
+  .btn.alt:hover,.btn.alt:focus-visible,.btn.alt.kfocus{border-color:var(--txt);box-shadow:0 0 0 3px rgba(255,255,255,.5)}
+  .btn.pink{background:linear-gradient(90deg,var(--acc2),#a24fff);color:#fff;box-shadow:0 8px 30px rgba(255,79,216,.3)}
+  .note{color:var(--mut);font-size:13px;text-align:center;margin-top:14px;line-height:1.4}
+
+  /* quiz */
+  .top{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:22px}
+  .top .bar{order:3;flex-basis:100%}
+  .bar{flex:1;height:10px;border-radius:99px;background:rgba(255,255,255,.1);overflow:hidden}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),var(--acc3));border-radius:99px;transition:width .35s ease}
+  .hidden{display:none!important}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#fff;color:#14081f;font-weight:800;padding:12px 18px;border-radius:14px;z-index:20;box-shadow:0 10px 30px rgba(0,0,0,.4);animation:in .3s ease}
+  .count{font-weight:800;font-variant-numeric:tabular-nums;color:var(--mut);min-width:56px;margin-right:auto}
+  .cat{display:inline-block;align-self:flex-start;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+       color:var(--acc);border:1px solid rgba(198,255,61,.35);border-radius:99px;padding:5px 11px;margin-bottom:14px}
+  .q{font-size:clamp(22px,5vw,30px);font-weight:850;line-height:1.2;margin-bottom:22px;letter-spacing:-.01em}
+  .answers{display:flex;flex-direction:column;gap:12px}
+  .ans{
+    text-align:left;width:100%;border:1.5px solid var(--line);background:var(--card);color:var(--txt);
+    border-radius:16px;padding:16px 18px;font-size:17px;line-height:1.35;cursor:pointer;font-family:inherit;
+    transition:border-color .12s, background .12s, transform .12s;outline:none;display:flex;gap:12px;align-items:flex-start
+  }
+  .ans b{flex:none;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-size:14px;
+         background:rgba(255,255,255,.1);color:var(--mut)}
+  .ans:hover,.ans:focus-visible,.ans.kfocus{border-color:var(--acc);background:rgba(198,255,61,.08);transform:translateX(3px)}
+  .ans.picked{border-color:var(--acc);background:rgba(198,255,61,.18)}
+  .ans.picked b{background:var(--acc);color:#14081f}
+
+  /* ad pause */
+  .pause{position:fixed;inset:0;background:rgba(10,4,16,.85);display:none;place-items:center;z-index:10;text-align:center;padding:20px}
+  .pause.on{display:grid}
+  .pause div{font-size:18px;color:var(--mut)}
+
+  /* result */
+  .res-emoji{font-size:84px;text-align:center;margin-top:6px}
+  .res-pct{text-align:center;font-size:15px;color:var(--mut);margin-top:6px;text-transform:uppercase;letter-spacing:.08em}
+  .res-num{text-align:center;font-size:72px;font-weight:900;line-height:1;margin:4px 0;
+           background:linear-gradient(90deg,var(--acc),var(--acc3));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .res-title{text-align:center;font-size:clamp(26px,6vw,36px);font-weight:900;line-height:1.1;margin:10px 0 8px}
+  .res-tag{text-align:center;color:var(--acc2);font-weight:700;font-size:17px;margin-bottom:20px}
+  .meter{position:relative;height:14px;border-radius:99px;background:linear-gradient(90deg,#5a5a7a,#4fd8ff,#c6ff3d,#ff4fd8);margin:0 4px 6px}
+  .meter i{position:absolute;top:50%;width:26px;height:26px;border-radius:50%;background:#fff;border:4px solid #14081f;transform:translate(-50%,-50%);box-shadow:0 0 0 2px #fff;transition:left 1s cubic-bezier(.2,.8,.2,1)}
+  .meter-l{display:flex;justify-content:space-between;font-size:12px;color:var(--mut);margin-bottom:24px}
+  .box{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;margin-bottom:14px}
+  .box h3{font-size:14px;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin-bottom:10px}
+  .box p{font-size:16.5px;line-height:1.55}
+  .box ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .box li{font-size:16px;line-height:1.45;padding-left:26px;position:relative}
+  .box li:before{content:attr(data-i);position:absolute;left:0}
+  .lock{position:relative;overflow:hidden}
+  .lock .blur{filter:blur(7px);opacity:.55;pointer-events:none}
+  .lock .over{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:12px;padding:18px;
+              background:linear-gradient(180deg,rgba(20,8,31,.2),rgba(20,8,31,.85))}
+  .lock .over p{text-align:center;font-weight:700}
+  .lock .over .btn{max-width:360px}
+  .row{display:flex;align-items:center;gap:10px;margin:10px 0}
+  .row span{width:120px;font-size:15px;flex:none}
+  .row .bar{height:12px}
+  .row em{font-style:normal;width:44px;text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
+  .verdict{font-size:15px;color:var(--mut);margin:-4px 0 8px 130px;line-height:1.4}
+  .actions{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+  @media (max-width:480px){ .row span{width:118px;font-size:14px} .verdict{margin-left:0} }
+</style>
+</head>
+<body>
+<div id="game-scroll">
+<div id="app">
+
+  <!-- START -->
+  <section class="screen on" id="s-start">
+    <div class="logo">🦄</div>
+    <h1>Насколько ты <em>нишевый</em>?</h1>
+    <p class="lead">36 вопросов о музыке, стиле, еде, интернете и твоих странных увлечениях. Узнай, ты мейнстрим‑нормис или тебя знают только трое людей и один алгоритм.</p>
+    <div class="chips">
+      <span class="chip">🎧 Музыка</span><span class="chip">🧥 Стиль</span><span class="chip">🍜 Еда</span>
+      <span class="chip">📱 Интернет</span><span class="chip">🎲 Досуг</span><span class="chip">🧠 Мышление</span>
+    </div>
+    <button class="btn" id="b-start">Узнать свою нишевость</button>
+    <p class="note">Тест развлекательный. Отвечай честно — алгоритм всё равно догадается.</p>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="screen" id="s-quiz">
+    <div class="top">
+      <div class="bar"><i id="q-bar"></i></div>
+      <div class="count" id="q-count">1/36</div>
+    </div>
+    <span class="cat" id="q-cat"></span>
+    <div class="q" id="q-text"></div>
+    <div class="answers" id="q-ans"></div>
+  </section>
+
+  <!-- RESULT -->
+  <section class="screen" id="s-res">
+    <div class="res-emoji" id="r-emoji"></div>
+    <div class="res-pct">твоя нишевость</div>
+    <div class="res-num" id="r-num">0%</div>
+    <h2 class="res-title" id="r-title" tabindex="-1"></h2>
+    <div class="res-tag" id="r-tag"></div>
+    <div class="meter"><i id="r-meter" style="left:0%"></i></div>
+    <div class="meter-l"><span>Мейнстрим</span><span>Тебя не существует</span></div>
+
+    <div class="box"><h3>Кто ты</h3><p id="r-desc"></p></div>
+    <div class="box"><h3>Твои суперсилы</h3><ul id="r-plus"></ul></div>
+    <div class="box"><h3>Ред‑флаги</h3><ul id="r-minus"></ul></div>
+
+    <div class="box" id="r-lock">
+      <h3>Разбор по сферам жизни</h3>
+      <div id="r-cats"></div>
+      <div class="over hidden" id="r-over">
+        <p>🔒 Где ты нишевый, а где — тайный нормис?</p>
+        <button class="btn pink" id="b-unlock">▶ Открыть за просмотр рекламы</button>
+      </div>
+    </div>
+
+    <div class="box"><h3>Твой нишевый совет</h3><p id="r-tip"></p></div>
+
+    <div class="actions">
+      <button class="btn pink hidden" id="b-share">📣 Поделиться результатом</button>
+      <button class="btn" id="b-again">Пройти ещё раз</button>
+    </div>
+  </section>
+
+</div>
+</div>
+<div class="pause" id="pause" role="status"><div>Реклама… тест на паузе ⏸</div></div>
+
+<script>
+/* ===================== ДАННЫЕ ===================== */
+const CATS = {
+  music:{name:"Музыка",icon:"🎧"}, style:{name:"Стиль",icon:"🧥"}, food:{name:"Еда",icon:"🍜"},
+  web:{name:"Интернет",icon:"📱"}, fun:{name:"Досуг",icon:"🎲"}, mind:{name:"Мышление",icon:"🧠"}
+};
+// a: [текст, баллы 0..3]
+const Q = [
+ // МУЗЫКА
+ {c:"music",q:"Что у тебя в наушниках прямо сейчас?",a:[
+   ["То, что сейчас в топе чартов",0],["Плейлист, который сам включил стриминг",1],
+   ["Альбом группы, у которой 40 тысяч слушателей",2],["Запись шума японской электрички в 2007 году",3]]},
+ {c:"music",q:"Твоя любимая группа внезапно стала суперпопулярной. Твоя реакция?",a:[
+   ["Ура, наконец‑то их все узнали!",0],["Рад, но немного ревную",1],
+   ["«Я слушал их ещё до того, как это стало мейнстримом»",2],["Удаляю из плейлиста. Это больше не моё",3]]},
+ {c:"music",q:"Как ты находишь новую музыку?",a:[
+   ["Что играет в рилсах — то и слушаю",0],["Рекомендации стриминга",1],
+   ["Через друга, у которого «вкус»",2],["Копаюсь в треках с 12 прослушиваниями в 3 часа ночи",3]]},
+ {c:"music",q:"На вечеринке тебе дали провод от колонки. Ставишь:",a:[
+   ["Беспроигрышный хит, который знают все",0],["Ностальгию из 2016‑го, прайм‑эра же",1],
+   ["Что‑то малоизвестное, но под это можно танцевать",2],["12‑минутный трек на варгане. Пусть развиваются",3]]},
+ {c:"music",q:"Сколько у тебя любимых артистов, о которых не слышал никто из друзей?",a:[
+   ["Ни одного",0],["Парочка",1],["Около десятка",2],["Весь мой плейлист",3]]},
+ {c:"music",q:"На чём ты слушаешь музыку?",a:[
+   ["Стриминг в телефоне",0],["Умная колонка",1],
+   ["Кассетный плеер — звук теплее",2],["Винил, который ещё даже не вышел",3]]},
+ // СТИЛЬ
+ {c:"style",q:"Где ты обычно покупаешь одежду?",a:[
+   ["На маркетплейсе — что в топе продаж",0],["В масс‑маркете в ТЦ",1],
+   ["Секонд‑хенд и винтаж",2],["Перешиваю сам или беру у бренда из трёх человек",3]]},
+ {c:"style",q:"Тебя спрашивают: «Где ты это купил?» Ты:",a:[
+   ["Сразу кидаю ссылку на маркетплейс",0],["Называю магазин",1],
+   ["«Да так… в одном месте»",2],["«Нигде. Это было в единственном экземпляре»",3]]},
+ {c:"style",q:"Твоя причёска — это…",a:[
+   ["Как у всех, зато удобно",0],["Модная стрижка из видео",1],
+   ["Что‑то необычное, все переспрашивают",2],["Стригусь сам. Это концепция",3]]},
+ {c:"style",q:"С чем ты выходишь из дома?",a:[
+   ["Самый популярный рюкзак",0],["Шопер с ироничной надписью",1],
+   ["Винтажный портфель с рынка",2],["Бабушкина авоська — переосмысленная",3]]},
+ {c:"style",q:"Аксессуар, без которого ты никуда:",a:[
+   ["Телефон, конечно",0],["Беспроводные наушники и смарт‑часы",1],
+   ["Кольца, значки, брелоки — много",2],["Плёночный фотоаппарат на 12 кадров",3]]},
+ {c:"style",q:"Твои кроссовки:",a:[
+   ["Самая популярная модель",0],["Лимитка, за которой все охотятся",1],
+   ["Странная модель, которую сняли с производства",2],["Это не кроссовки. Это ботинки норвежского рыбака",3]]},
+ // ЕДА
+ {c:"food",q:"Ты в новом городе и хочешь поесть. Куда пойдёшь?",a:[
+   ["В знакомый сетевой фастфуд",0],["В место из топа на картах",1],
+   ["Спрошу у местных",2],["Найду забегаловку без вывески и с меню на одном языке",3]]},
+ {c:"food",q:"Твой кофе:",a:[
+   ["Растворимый «три в одном»",0],["Капучино на вынос",1],
+   ["Фильтр на зерне с конкретной фермы",2],["Кофе — мейнстрим. Я пью цикорий и ферментированные чаи",3]]},
+ {c:"food",q:"Ты попробовал блюдо, которое стало трендом. Что скажешь?",a:[
+   ["Вкусно, беру ещё",0],["Нормально, но хайп раздут",1],
+   ["Я ел это три года назад",2],["Я его практически придумал",3]]},
+ {c:"food",q:"Идеальный перекус в два часа ночи:",a:[
+   ["Чипсы и газировка",0],["Доставка роллов",1],
+   ["Тост со странным, но гениальным сочетанием",2],["Квашеная капуста собственного производства",3]]},
+ {c:"food",q:"Какую пиццу заказываешь?",a:[
+   ["Пепперони, без экспериментов",0],["С ананасами — и не стыжусь",1],
+   ["С грушей и горгонзолой",2],["Пицца — это мейнстрим. Хачапури с кимчи",3]]},
+ {c:"food",q:"Твоя суперсила на кухне:",a:[
+   ["Знаю, где лучшая доставка",0],["Готовлю по рецептам из видео",1],
+   ["Ферментирую всё, что плохо лежит",2],["Делаю соус по рецепту прабабушки и никому его не даю",3]]},
+ // ИНТЕРНЕТ
+ {c:"web",q:"Твой любимый блогер:",a:[
+   ["Миллионник, которого знают все",0],["Популярный в своей теме",1],
+   ["У него 3000 подписчиков, и я помню многих по никам",2],["У него 12 подписчиков, и один из них — я",3]]},
+ {c:"web",q:"Когда до тебя доходит новый мем?",a:[
+   ["Когда мне его присылает мама",0],["Когда он уже везде",1],
+   ["Когда он только начинает разгоняться",2],["Видел его на форуме за полгода до всех",3]]},
+ {c:"web",q:"Как ты относишься к «сикс‑севен»?",a:[
+   ["Говорю постоянно, это смешно",0],["Иногда, чисто иронично",1],
+   ["Устал, это уже кринж",2],["Понятия не имею, что это, и горжусь",3]]},
+ {c:"web",q:"Где ты проводишь больше всего времени в сети?",a:[
+   ["В той соцсети, где сидят все",0],["В двух‑трёх популярных приложениях",1],
+   ["В телеграм‑каналах на 500 человек",2],["На форуме, который выглядит как сайт из 2006‑го",3]]},
+ {c:"web",q:"Что тебе показывает лента рекомендаций?",a:[
+   ["То же, что и всем друзьям",0],["В целом стандарт, но с моими темами",1],
+   ["Реставрацию ковров и обзоры камней",2],["Алгоритм сдался и показывает мне пустоту",3]]},
+ {c:"web",q:"Что у тебя на аватарке?",a:[
+   ["Моё обычное фото",0],["Картинка из популярного мема",1],
+   ["Странное фото случайного предмета",2],["Квадрат одного цвета. Без объяснений",3]]},
+ // ДОСУГ
+ {c:"fun",q:"Идеальные выходные:",a:[
+   ["ТЦ и новый блокбастер",0],["Тусовка в популярном баре",1],
+   ["Блошиный рынок и выставка в подвале",2],["Изучаю историю трамваев своего города",3]]},
+ {c:"fun",q:"Твоё хобби:",a:[
+   ["Сериалы и игры из топа",0],["Спортзал или бег",1],
+   ["Керамика или настолки",2],["Коллекционирую старые трамвайные билеты",3]]},
+ {c:"fun",q:"Какое кино смотришь?",a:[
+   ["То, что все обсуждают",0],["Сериалы из топа платформы",1],
+   ["Фестивальное кино",2],["Четырёхчасовую документалку о производстве пуговиц",3]]},
+ {c:"fun",q:"Во что играешь?",a:[
+   ["В то же, во что играют все",0],["Популярное, но не самое хайповое",1],
+   ["Инди‑игру за 99 рублей",2],["В текстовую игру, которую написал человек с форума",3]]},
+ {c:"fun",q:"Куда поедешь в отпуск?",a:[
+   ["Пляж, «всё включено»",0],["Популярная столица",1],
+   ["Маленький городок, о котором никто не слышал",2],["На заброшенную метеостанцию",3]]},
+ {c:"fun",q:"Подарок мечты на день рождения:",a:[
+   ["Новый телефон",0],["Сертификат в любимый магазин",1],
+   ["Билет на концерт малоизвестной группы",2],["Кусок метеорита. Не спрашивай зачем",3]]},
+ // МЫШЛЕНИЕ
+ {c:"mind",q:"Друзья спорят о чём‑то популярном. Ты:",a:[
+   ["Поддерживаю большинство",0],["Спокойно говорю своё мнение",1],
+   ["Принципиально выбираю непопулярную сторону",2],["Объясняю, почему сам вопрос поставлен неверно",3]]},
+ {c:"mind",q:"Что‑то стало трендом. Ты:",a:[
+   ["Сразу пробую",0],["Жду отзывов",1],["Теряю интерес",2],["Я это давно бросил",3]]},
+ {c:"mind",q:"Слово «нишевый» для тебя —",a:[
+   ["Новое модное словечко",0],["Комплимент",1],
+   ["Описание моей жизни",2],["Уже слишком мейнстрим, чтобы им пользоваться",3]]},
+ {c:"mind",q:"Тебе говорят: «Ты странный». Ты:",a:[
+   ["Обижаюсь",0],["Смеюсь",1],["Говорю «спасибо»",2],["«Нет, это вы все одинаковые»",3]]},
+ {c:"mind",q:"Ты прочитал книгу, о которой все говорят. Твоё мнение:",a:[
+   ["Шедевр, все были правы",0],["Хорошая, но переоценённая",1],
+   ["Я читал её ещё до перевода",2],["Я не читаю бестселлеры из принципа",3]]},
+ {c:"mind",q:"И последнее: зачем ты проходишь этот тест?",a:[
+   ["Друг скинул",0],["Увидел в топе",1],
+   ["Хочу подтвердить, что я особенный",2],["Проверяю, достаточно ли этот тест нишевый для меня",3]]},
+];
+
+const RES = [
+ {min:0,e:"🛒",t:"Мейнстрим‑нормис",g:"Тебя создал алгоритм рекомендаций — и он доволен",
+  d:"Ты — человек, ради которого составляют чарты. Тебе нравится то, что нравится всем, и в этом нет ничего плохого: ты всегда в теме, с тобой легко найти общий язык, а на любой вечеринке ты знаешь все песни наизусть. Пока другие спорят о «настоящем вкусе», ты просто наслаждаешься жизнью. Маркетологи мечтают о таких клиентах.",
+  p:["Всегда понимаешь, о чём говорят вокруг","С тобой легко выбрать фильм на вечер","Не тратишь три часа на поиск «того самого» кофе"],
+  m:["Узнаёшь о меме, когда он уже умер","Твоя лента рекомендаций совпадает с лентой мамы","Думаешь, что «нишевый» — это про мебель"],
+  tip:"Попробуй раз в неделю включать что‑то наугад: альбом без обложки, кафе без отзывов, фильм без трейлера. Не понравится — вернёшься в топ‑чарты, они никуда не денутся."},
+ {min:16,e:"📲",t:"Человек из рекомендаций",g:"Почти как все, но с ноткой индивидуальности",
+  d:"Ты живёшь в основном потоке, но иногда сворачиваешь на тропинку. У тебя есть парочка «своих» вещей, которыми ты гордишься, но в целом ты не против хайпа. Ты из тех, кто пробует тренд, когда о нём уже есть отзывы. Это разумно: меньше разочарований, больше удовольствия.",
+  p:["Идеальный баланс между «в теме» и «со своим вкусом»","Умеешь отличать хайп от действительно хорошего","Друзья доверяют твоим рекомендациям"],
+  m:["Твоя «необычная» группа уже в топ‑100","Шопер с надписью — это пока не стиль","Стриминг знает тебя лучше, чем ты сам"],
+  tip:"Найди одну тему, которой не увлекается никто из твоих друзей, и копни её поглубже. Так и появляется настоящая «своя» ниша."},
+ {min:31,e:"🫖",t:"Слегка нишевый",g:"Заварил свой вкус, но ещё не настоялся",
+  d:"Ты уже чувствуешь вкус к странному: знаешь пару малоизвестных мест, слушаешь что‑то, о чём друзья не слышали, и иногда пишешь «а я это знал ещё до того, как…». Но ты не фанатик — можешь спокойно сходить и на блокбастер. Ты — мост между мейнстримом и андеграундом, и людям с тобой интересно.",
+  p:["Знаешь, где вкусно, но ещё не стал снобом","Открываешь друзьям новое без занудства","Тебя сложно удивить, но легко порадовать"],
+  m:["Иногда притворяешься, что не знаешь популярное","Говоришь «ну, это на любителя» про каждую вещь","Твой винтажный свитер куплен на маркетплейсе"],
+  tip:"Заведи заметку «нишевые находки» и записывай туда всё странное, что понравилось. Через полгода у тебя будет свой личный путеводитель."},
+ {min:49,e:"🦄",t:"Нишевый",g:"Официально подтверждено: ты не как все",
+  d:"Поздравляем, ты нишевый. Твой плейлист — загадка для окружающих, одежда — повод для вопросов, а рекомендации от тебя — это всегда квест. Ты замечаешь вещи раньше других и теряешь к ним интерес, когда они становятся популярными. Людям с тобой не скучно, хотя иногда они не понимают, о чём ты.",
+  p:["У тебя есть вкус, а не просто предпочтения","Ты находишь тренды за месяцы до всех","Тебя невозможно спутать с кем‑то ещё"],
+  m:["Слегка презираешь всё, что в топе","Объясняешь отсылки дольше, чем длится шутка","Друзья боятся давать тебе пульт от колонки"],
+  tip:"Иногда позволяй себе любить популярное без иронии. Это не делает тебя менее нишевым — это делает тебя свободным."},
+ {min:66,e:"🍄",t:"Глубоко нишевый",g:"Ты живёшь там, куда алгоритмы боятся заглядывать",
+  d:"Ты давно ушёл со всех проторенных дорог. Твои интересы звучат как выдуманные, музыка — как радиопомехи, а место для ужина ты выбираешь по принципу «чем меньше отзывов, тем лучше». Ты вдохновляешь окружающих и одновременно немного их пугаешь. Скорее всего, именно ты через пару лет окажешься автором следующего тренда.",
+  p:["Настоящий первооткрыватель","Твоя коллекция странных фактов бесконечна","Знаешь то, о чём не пишут даже нейросети"],
+  m:["Выражение «это слишком популярно» говоришь чаще, чем «привет»","Объяснить твоё хобби бабушке невозможно","Алгоритмы считают тебя багом"],
+  tip:"Поделись своими находками: заведи маленький канал или блог. Твоя ниша может стать домом для таких же странных и прекрасных людей."},
+ {min:83,e:"👻",t:"Настолько нишевый, что тебя не существует",g:"Ты — легенда, которую никто не видел",
+  d:"Тебя нет ни в одном чарте, ни в одной рекомендации и, возможно, ни в одной базе данных. Ты слушаешь то, что ещё не записано, носишь то, что ещё не сшито, и смеёшься над мемами, которые ещё не придуманы. Даже этот тест для тебя, скорее всего, слишком мейнстримный. Учёные до сих пор спорят, реален ли ты.",
+  p:["Абсолютная независимость вкуса","Твоё «раньше всех» измеряется годами","Ты сам себе тренд, сам себе алгоритм"],
+  m:["Тебя невозможно найти в соцсетях — тебя там нет","Ты заскучал, пока проходил тест: слишком популярный","Твоя единственная подписчица — бабушкина авоська"],
+  tip:"Расскажи этот результат друзьям — пусть знают, что ты существуешь. Ну или хотя бы, что существовал."},
+];
+
+const CAT_VERDICTS = [
+  [0,"Тут ты тайный нормис 🤫"],
+  [34,"Немного своего, но в рамках приличия"],
+  [56,"Уверенно нишевый"],
+  [78,"Тут тебя уже никто не понимает 🛸"],
+];
+
+/* ===================== VK BRIDGE ===================== */
+const launchParams = new URLSearchParams(location.search);
+const appId = launchParams.get("vk_app_id");
+const isOk = launchParams.get("vk_client") === "ok";
+let bridge = null;
+let adBusy = false;
+let sharing = false;
+let resultPercent = 0;
+
+async function initVK(){
+  const sdk = window.vkBridge;
+  if (!sdk?.isEmbedded()) return;
+  try {
+    await sdk.send("VKWebAppInit");
+    bridge = sdk;
+    if (!isOk && /^[1-9][0-9]*$/.test(appId || "") && sdk.supports("VKWebAppShowWallPostBox")) {
+      $("b-share").classList.remove("hidden");
+    }
+  } catch {
+    // The quiz remains playable if the host does not answer.
+  }
+}
+
+async function sendAd(method, format, timeoutMs){
+  let timer;
+  try {
+    return await Promise.race([
+      bridge.send(method, {ad_format: format}),
+      new Promise((_, reject) => {
+        timer = setTimeout(() => reject(new Error("VK ad request timed out")), timeoutMs);
+      })
+    ]);
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function adAvailable(format){
+  if (!bridge) return false;
+  try {
+    const {result} = await sendAd("VKWebAppCheckNativeAds", format, 2500);
+    return result === true;
+  } catch {
+    return false;
+  }
+}
+
+async function playAd(format){
+  adBusy = true;
+  $("app").inert = true;
+  $("pause").classList.add("on");
+  try {
+    const {result} = await sendAd("VKWebAppShowNativeAds", format, 120000);
+    return result === true;
+  } finally {
+    $("pause").classList.remove("on");
+    $("app").inert = false;
+    adBusy = false;
+  }
+}
+
+function toast(message){
+  const notice = document.createElement("div");
+  notice.className = "toast";
+  notice.setAttribute("role", "status");
+  notice.textContent = message;
+  document.body.appendChild(notice);
+  setTimeout(() => notice.remove(), 3000);
+}
+
+async function shareResult(){
+  if (!bridge || sharing || adBusy) return;
+  const title = $("r-title").textContent;
+  sharing = true;
+  try {
+    await bridge.send("VKWebAppShowWallPostBox", {
+      message: `Моя нишевость — ${resultPercent}%: «${title}» 🦄\nА насколько нишевый ты?`,
+      attachments: "https://vk.com/app" + appId
+    });
+  } catch {
+    toast("Публикация не выполнена");
+  } finally {
+    sharing = false;
+  }
+}
+
+/* ===================== ЛОГИКА ===================== */
+const $ = id => document.getElementById(id);
+let idx = 0, answers = [], locked = false, order = [];
+
+function shuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+function show(id){
+  document.querySelectorAll(".screen").forEach(screen => screen.classList.toggle("on", screen.id === id));
+  $("game-scroll").scrollTop = 0;
+  focusFirst();
+}
+
+function start(){
+  idx=0; answers=[]; order = Q.map(q=>shuffle(q.a));
+  show("s-quiz"); render();
+}
+function render(){
+  const q = Q[idx];
+  $("q-bar").style.width = (idx/Q.length*100)+"%";
+  $("q-count").textContent = (idx+1)+"/"+Q.length;
+  $("q-cat").textContent = CATS[q.c].icon+" "+CATS[q.c].name;
+  $("q-text").textContent = q.q;
+  const box = $("q-ans"); box.innerHTML="";
+  order[idx].forEach((a,i)=>{
+    const b=document.createElement("button");
+    b.className="ans"; b.innerHTML="<b>"+"АБВГ"[i]+"</b><span></span>";
+    b.querySelector("span").textContent=a[0];
+    b.onclick=()=>pick(b,a[1]);
+    box.appendChild(b);
+  });
+  locked=false; focusFirst();
+}
+async function pick(btn,pts){
+  if(locked||adBusy) return; locked=true;
+  btn.classList.add("picked");
+  answers[idx]=pts;
+  await new Promise(r=>setTimeout(r,260));
+  idx++;
+  if(idx>=Q.length) return finish(await adAvailable("reward"));
+  if(idx === Math.floor(Q.length / 2) && await adAvailable("interstitial")){
+    try { await playAd("interstitial"); } catch { /* Continue to the next question. */ }
+  }
+  render();
+}
+
+function finish(canWatch){
+  const max = Q.length*3, sum = answers.reduce((a,b)=>a+b,0);
+  const pct = Math.round(sum/max*100);
+  resultPercent = pct;
+  const r = [...RES].reverse().find(x=>pct>=x.min);
+  $("r-emoji").textContent=r.e; $("r-title").textContent=r.t; $("r-tag").textContent=r.g;
+  $("r-desc").textContent=r.d; $("r-tip").textContent=r.tip;
+  fillList("r-plus",r.p,"✅"); fillList("r-minus",r.m,"🚩");
+  // по сферам
+  const cats = {}; Q.forEach((q,i)=>{ (cats[q.c]=cats[q.c]||[]).push(answers[i]); });
+  const wrap=$("r-cats"); wrap.innerHTML="";
+  Object.keys(CATS).forEach(k=>{
+    const arr=cats[k]||[0], p=Math.round(arr.reduce((a,b)=>a+b,0)/(arr.length*3)*100);
+    const v=[...CAT_VERDICTS].reverse().find(x=>p>=x[0])[1];
+    const row=document.createElement("div");
+    row.innerHTML='<div class="row"><span>'+CATS[k].icon+" "+CATS[k].name+'</span><div class="bar"><i style="width:'+p+'%"></i></div><em>'+p+'%</em></div><div class="verdict"></div>';
+    row.querySelector(".verdict").textContent=v;
+    wrap.appendChild(row);
+  });
+  prepareBreakdown(canWatch);
+  show("s-res");
+  $("r-num").textContent = pct + "%";
+  setTimeout(()=>{ $("r-meter").style.left=Math.max(2,Math.min(98,pct))+"%"; },60);
+  $("r-meter").style.left="0%";
+}
+function fillList(id,arr,icon){ const ul=$(id); ul.innerHTML=""; arr.forEach(t=>{const li=document.createElement("li");li.dataset.i=icon;li.textContent=t;ul.appendChild(li);}); }
+
+function revealCats(){
+  $("r-cats").classList.remove("blur");
+  $("r-cats").removeAttribute("aria-hidden");
+  $("r-over").classList.add("hidden");
+  $("r-lock").classList.remove("lock");
+}
+
+function prepareBreakdown(canWatch){
+  revealCats();
+  if (!canWatch) return;
+  $("r-lock").classList.add("lock");
+  $("r-cats").classList.add("blur");
+  $("r-cats").setAttribute("aria-hidden", "true");
+  $("r-over").classList.remove("hidden");
+}
+
+async function unlock(){
+  const button = $("b-unlock");
+  if (adBusy || button.disabled) return;
+  const replayButton = $("b-again");
+  button.disabled = true;
+  replayButton.disabled = true;
+  try {
+    if (!await adAvailable("reward")) {
+      revealCats();
+    } else if (await playAd("reward")) {
+      revealCats();
+    } else {
+      toast("Видео не досмотрено. Можно попробовать ещё раз.");
+    }
+  } catch {
+    revealCats();
+  } finally {
+    button.disabled = false;
+    replayButton.disabled = false;
+    focusFirst();
+  }
+}
+
+/* ===================== УПРАВЛЕНИЕ (стрелки пульта / клавиатура) ===================== */
+function focusables(){ const s=document.querySelector(".screen.on"); return s?[...s.querySelectorAll("button")].filter(b=>!b.disabled && b.offsetParent!==null):[]; }
+function focusFirst(){ setTimeout(()=>{ const s=document.querySelector(".screen.on"); const f=focusables();
+  const main = s?.id === "s-res" ? $("r-title") : s?.querySelector(".ans") || s?.querySelector(".btn:not(.hidden):not(:disabled)");
+  const el = main || f[0];
+  if(el) el.focus({preventScroll:true}); },20); }
+document.addEventListener("keydown",e=>{
+  if(adBusy || $("s-res").classList.contains("on")) return;
+  const f=focusables(); if(!f.length) return;
+  let i=f.indexOf(document.activeElement);
+  if(["ArrowDown","ArrowRight"].includes(e.key)){ e.preventDefault(); f[(i+1)%f.length].focus(); f[(i+1)%f.length].scrollIntoView({block:"nearest"}); }
+  else if(["ArrowUp","ArrowLeft"].includes(e.key)){ e.preventDefault(); const j=(i-1+f.length)%f.length; f[j].focus(); f[j].scrollIntoView({block:"nearest"}); }
+  else if(e.key==="Enter"||e.key===" "){ if(i<0){ e.preventDefault(); f[0].focus(); } }
+  else if(["1","2","3","4"].includes(e.key) && $("s-quiz").classList.contains("on")){ const b=$("q-ans").children[+e.key-1]; if(b) b.click(); }
+});
+
+/* ===================== СТАРТ ===================== */
+$("b-start").onclick=start;
+$("b-again").onclick=start;
+$("b-share").onclick=shareResult;
+$("b-unlock").onclick=unlock;
+document.addEventListener("DOMContentLoaded", initVK, {once: true});
+</script>
+</body>
+</html>
